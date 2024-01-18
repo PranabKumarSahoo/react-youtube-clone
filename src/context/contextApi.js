@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { fetchDataFromApi } from "../utils/api";
+import Data from "../data.json";
 
 export const context = createContext();
 
@@ -9,17 +10,24 @@ export const AppContext = (props) => {
     const [selectCategories, setSelectCategories] = useState("New");
     const [mobileMenu, setMobileMenu] = useState(false);
 
+    const trigger = true;
+
     useEffect(() => {
         fetchSelectedCategoryData(selectCategories);
     }, [selectCategories]);
 
     const fetchSelectedCategoryData = (query) => {
         setLoading(true);
-        fetchDataFromApi(`search/?q=${query}`).then(({ contents }) => {
-            console.log(contents);
-            setSearchResults(contents);
+        if (trigger) {
+            fetchDataFromApi(`search/?q=${query}`).then(({ contents }) => {
+                // console.log(contents);
+                setSearchResults(contents);
+                setLoading(false);
+            })
+        } else {
+            setSearchResults(Data);
             setLoading(false);
-        })
+        }
     }
 
     return (
