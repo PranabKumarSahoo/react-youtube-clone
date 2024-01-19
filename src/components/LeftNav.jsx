@@ -28,7 +28,7 @@ const LeftNav = () => {
         <div
             className={`md:block w-[250px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 translate-x-[-250px] md:translate-x-0 transition-all ${mobileMenu ? 'translate-x-[0px]' : ''}`}
         >
-            <div className='flex flex-col gap-2 px-5'>
+            <div className='flex flex-col gap-2 px-5 text-sm'>
                 {
                     categories.map((item, index) => (
                         <React.Fragment key={index}>

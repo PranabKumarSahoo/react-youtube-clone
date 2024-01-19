@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { AiOutlineLike } from 'react-icons/ai';
+import { IoMdEye } from "react-icons/io";
 import { abbreviateNumber } from 'js-abbreviation-number';
 
 import { fetchDataFromApi } from '../utils/api';
@@ -16,6 +17,7 @@ const VideoDetails = () => {
     const { id } = useParams();
     const { setLoading } = useContext(context);
 
+
     useEffect(() => {
         document.getElementById("root").classList.add("custom-h");
         fetchVideoDetails();
@@ -25,7 +27,6 @@ const VideoDetails = () => {
     const fetchVideoDetails = () => {
         setLoading(true);
         fetchDataFromApi(`video/details/?id=${id}`).then((res) => {
-            // console.log(res);
             setVideo(res);
             setLoading(false);
         })
@@ -34,7 +35,6 @@ const VideoDetails = () => {
     const fetchRelatedVideos = () => {
         setLoading(true);
         fetchDataFromApi(`video/related-contents/?id=${id}`).then((res) => {
-            // console.log(res);
             setRelatedVideo(res);
             setLoading(false);
         })
@@ -82,12 +82,12 @@ const VideoDetails = () => {
                             </div>
                         </div>
                         <div className='flex text-white mt-4 md:mt-0'>
-                            <div className='flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15]'>
+                            <div className='flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15] hover:bg-white/[0.2] cursor-pointer'>
                                 <AiOutlineLike className='text-xl text-white mr-2' />
                                 <span>{`${abbreviateNumber(video?.stats?.likes, 2)} Likes`}</span>
                             </div>
-                            <div className='flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15] ml-4'>
-                                <AiOutlineLike className='text-xl text-white mr-2' />
+                            <div className='flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15] ml-4 hover:bg-white/[0.2] cursor-pointer'>
+                                <IoMdEye className='text-xl text-white mr-2' />
                                 <span>{`${abbreviateNumber(video?.stats?.views, 2)} Views`}</span>
                             </div>
                         </div>
