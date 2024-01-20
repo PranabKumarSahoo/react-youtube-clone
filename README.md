@@ -44,7 +44,7 @@ npm install
 ```bash
 npm start
 ```
-**Open your browser and visit `http://localhost:3000` to see the React YouTube Clone in action.**
+**Open your browser and visit (http://localhost:3000) to see the React YouTube Clone in action.**
 
 ## License
 This project is licensed under the [MIT License].
