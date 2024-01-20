@@ -47,4 +47,4 @@ npm start
 Open your browser and visit http://localhost:3000 to see the React YouTube Clone in action.
 
 ## License
-This project is licensed under the [MIT License].
+This project is licensed under the [MIT License](https://github.com/PranabKumarSahoo/react-youtube-clone/blob/main/LICENSE).
